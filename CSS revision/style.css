@@ -1,11 +1,16 @@
+/* Refer mdn */
+
 h1 {
     color:orange;
 }
 
 
+/*
 p {
+
     color:rgb(255,0,255);
 }
+*/
 
 button {
     color:blue;
@@ -32,3 +37,18 @@ hr {
 #box {
     background-color:blue;
 }
+
+#textfontproperties {
+    text-align: center;
+    text-decoration: blue dotted underline;
+    font-weight: 300;
+    font-family: Arial, serif;
+    font-size: 25px;
+    line-height: 20px;
+    text-transform: lowercase;
+}
+
+a {
+    text-decoration: none;
+}
+
