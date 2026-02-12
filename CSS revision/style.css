@@ -1,0 +1,34 @@
+h1 {
+    color:orange;
+}
+
+
+p {
+    color:rgb(255,0,255);
+}
+
+button {
+    color:blue;
+    background-color: #5fed5f;
+}
+
+body {
+    background-color: yellow;
+}
+
+hr {
+    background-color:brown;
+    height:5px;
+}
+
+#Heading1 {
+    color:indigo;
+}
+
+.myClass {
+    color:red;
+}
+
+#box {
+    background-color:blue;
+}
