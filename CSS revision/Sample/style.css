@@ -27,14 +27,37 @@ a {
 
 #M1 {
     background-color: rgba(255,0,0,0.5);
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+    transition-delay:0.1s;
 }
 
 #M2 {
     background-color: rgba(0,255,0,0.5);
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+    transition-delay:0.1s;
+    /*transform: rotate(45deg);*/
 }
+
 
 #M3 {
     background-color: rgba(0,0,255,0.5);
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+    transition-delay:0.1s;
+}
+
+#M1:hover,#M2:hover, #M3:hover {
+    background-color: rgba(0,255,255,0.5);
+    transform: scale(2) translate(50px,0) skew(-5deg);
+}
+
+#M2:active {
+    background-color: rgba(220, 113, 220, 0.5);
 }
 
 .mainDiv {
@@ -53,3 +76,30 @@ footer {
     background-color: #0f1111;
     color: white;
 }
+
+@media(max-width: 300px) {
+    body {
+        background-color: #99df99;
+    }
+}
+
+@media(min-width: 300px) and (max-width: 400px) {
+    body{
+        background-color: pink;
+    }
+}
+
+@media(min-width: 400px) and (max-width: 600px) {
+    body{
+        background-color: #c54a4a;
+    }
+}
+
+@media(min-width: 600px) {
+    body{
+        background-color: #7b7bdc;
+    }
+}
+
+
+
