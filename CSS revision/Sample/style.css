@@ -25,6 +25,18 @@ a {
     text-decoration: none;
 }
 
+.mainDiv {
+    height: 100px;
+    width: 100px;
+    border: 5px solid black;
+    margin: 100px;
+    padding: 10px;
+    animation-name: fontChange;
+    animation-duration: 5s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 3;
+}
+
 #M1 {
     background-color: rgba(255,0,0,0.5);
     transition-property: all;
@@ -56,17 +68,15 @@ a {
     transform: scale(2) translate(50px,0) skew(-5deg);
 }
 
-#M2:active {
-    background-color: rgba(220, 113, 220, 0.5);
+@keyframes fontChange {
+    from {font-size: 20px} to {font-size: 30px}
 }
 
-.mainDiv {
-    height: 100px;
-    width: 100px;
-    border: 5px solid black;
-    margin: 100px;
-    padding: 10px;
-}
+/*#M1:active, #M2:active, #M3:active {*/
+/*    background-color: rgba(220, 113, 220, 0.5);*/
+/*}*/
+
+
 
 #content {
     height: 700px;
