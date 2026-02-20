@@ -49,3 +49,9 @@ else{
 }
 
 console.log(color);
+console.log("Sum of first 5 natural numbers:");
+let sum =0;
+for(let i=1;i<=5;i++){
+    sum+=i;
+}
+console.log("Sum: ",sum);
