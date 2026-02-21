@@ -55,3 +55,73 @@ for(let i=1;i<=5;i++){
     sum+=i;
 }
 console.log("Sum: ",sum);
+
+let len=0;
+
+for(let i of fullname){
+    console.log(i);
+    len++;
+}
+
+console.log("Length: ",len);
+
+for(let i in student){
+    console.log(student[i]);
+}
+
+console.log("All even numbers: ")
+
+for(let i=0;i<=100;i++){
+    if(i%2===0){
+        console.log(i);
+    }
+}
+
+// let gameno = 8;
+// let num = prompt("Guess the number: ");
+//
+// while(num!=gameno) {
+//     num = prompt("Your guess was wrong, enter again: ");
+// }
+//
+// console.log("You guessed the right number i.e. ",num);
+
+console.log("String length: ",fullname.length);
+
+console.log(fullname[0]);
+
+console.log(`My full name is ${fullname}`);
+
+let cname = fullname.toUpperCase();
+console.log(`My name is ${cname}`);
+
+console.log(fullname.slice(0,4));
+
+let marks = [34,45,49,50];
+
+console.log(marks);
+
+for(let i of marks){
+    console.log(i);
+}
+
+
+let marksa = [30,35,40,45,50];
+let suma=0;
+let cnt=0;
+
+for(let i of marksa){
+    suma+=i;
+    cnt++;
+}
+
+console.log("Average: ",suma/cnt);
+
+marksa.push(55);
+console.log(marksa);
+
+console.log("Deleted Item: ",marksa.pop());
+
+console.log(marksa);
+
+console.log(marksa.toString());
