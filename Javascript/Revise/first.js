@@ -125,3 +125,63 @@ console.log("Deleted Item: ",marksa.pop());
 console.log(marksa);
 
 console.log(marksa.toString());
+
+// Function
+
+function myFunction(msg){
+    console.log(msg);
+}
+
+myFunction("HI!");
+
+function add(a,b) {
+    return a + b;
+}
+
+console.log(add(2,3));
+
+
+const arrowSum = (a,b) => {
+    return a + b;
+}
+
+console.log(arrowSum(2,3));
+
+
+const numVowels = (str) => {
+    let count=0;
+    for(let i of str){
+        if(i==='a' || i==='e' || i==='i' || i==='o' || i==='u'){
+            count++;
+        }
+    }
+    return count;
+}
+
+console.log(numVowels("aeioudbcf"));
+
+let cities = ["boston", "newyork","california","atlanta"];
+
+
+cities.forEach((city) => {console.log(city.toUpperCase())});
+
+
+let arr = [1,2,3,4,5,6];
+
+// arr.forEach((i) => {
+//     console.log(i*i);
+// });
+
+arr = arr.map((i) => {
+    return i*i;
+})
+
+console.log(arr);
+
+let newArr = arr.filter((i) => {
+    return i%2===0;
+})
+console.log(newArr);
+
+
+
