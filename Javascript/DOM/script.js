@@ -57,5 +57,57 @@ console.log(heading3[0].classList);
 
 
 
+let box2 = document.querySelector("#Box2");
+
+box2.onmouseover = (evn) => {
+    box2.style.backgroundColor = "purple";
+    console.log(evn);
+    console.log(evn.target);
+    console.log(evn.type);
+}
+
+let box1 = document.querySelector("#Box1");
+
+const clFn = (e) => {
+    box1.style.backgroundColor = "orange";
+    console.log(e);
+    console.log(e.target);
+    console.log(e.type);
+}
+
+box1.addEventListener("click", clFn);
+
+
+// Toggle
+let m =0;
+const tog = document.querySelector(".toggle");
+
+const changeMd = (e) => {
+    if(m===0){
+        bdy.style.backgroundColor = "black";
+        bdy.style.color = "white";
+        console.log(e.target);
+        console.log(e.type);
+        m=1;
+    }
+    else{
+        bdy.style.backgroundColor = "white";
+        bdy.style.color = "black";
+        console.log(e.target);
+        console.log(e.type);
+        m=0;
+    }
+
+}
+
+tog.addEventListener('click', changeMd);
+
+
+
+
+
+
+
+
 
 
