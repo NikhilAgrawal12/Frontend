@@ -183,5 +183,164 @@ let newArr = arr.filter((i) => {
 })
 console.log(newArr);
 
+// Revise functions
+// const mult = (a,b) => {
+//     return a + b;
+// }
+//
+// console.log(mult(2,3));
+//
+// let arra = [2,3,4,5,6];
+//
+// arra = arra.map((i) => {
+//     return i*i;
+// })
+//
+// console.log(arra);
+
+//Class and Object
+
+const student3 = {
+    name: "Nik",
+    marks: 50,
+    showName() {
+        console.log(this.name)
+    }
+};
+
+student3.showName();
+
+const employee = {
+    calcTax() {
+        console.log("tax rate is 10%");
+    }
+};
+
+const nikhilAgrawal = {
+    salary: 50000
+};
+
+nikhilAgrawal.__proto__ = employee;
+nikhilAgrawal.calcTax();
+
+
+const rohan = {
+    salary: 60000,
+    calcTax() {
+        console.log("tax rate is 20%");
+    }
+};
+
+rohan.__proto__ = employee;
+rohan.calcTax();
+
+//class
+
+class ToyotaCar {
+    constructor(brand){
+        console.log("creating new object");
+        this.brand = brand;
+    }
+
+    start() {
+        console.log("start");
+    }
+
+    stop(){
+        console.log("stop");
+    }
+
+    setType(type) {
+        this.type = type;
+    }
+}
+
+let fortuner = new ToyotaCar("Fortuner");
+fortuner.setType("SUV");
+fortuner.start();
+console.log(fortuner.brand);
+console.log(fortuner.type);
+
+
+//Inheritance
+
+class Parent {
+    hello() {
+        console.log("hello");
+    }
+}
+
+class Child extends Parent {
+
+}
+
+let c1 = new Child();
+c1.hello();
+
+// super();
+
+class Person {
+    constructor(name) {
+        console.log("parent constructor")
+        this.specises = "Homosepiens";
+        this.name=name;
+    }
+
+    eat() {
+        console.log("eat");
+    }
+
+}
+
+class Engineer extends Person {
+    constructor(name,branch) {
+        console.log("child constructor");
+        super(name);  // without calling parent constructor we cannot use child constructor
+        this.branch = branch;
+    }
+
+    work(){
+        super.eat();
+        console.log("work");
+    }
+}
+
+let engObj = new Engineer("Nikhil","CS");
+console.log(engObj);
+engObj.work();
+
+
+class User {
+    constructor(name, email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    viewData() {
+        console.log("Name: ",this.name);
+        console.log("Email: ",this.email);
+    }
+
+}
+
+let student1 = new User("Nik","nik@gmail.com");
+student1.viewData();
+
+//Error Handling
+
+let z=3;
+let w=5;
+
+console.log(z+w);
+
+try {
+    console.log(z-v);
+} catch(err) {
+    console.log(err);
+}
+
+console.log(z*w);
+
+
 
 
