@@ -342,5 +342,99 @@ try {
 console.log(z*w);
 
 
+// Callbacks, Promises and Async Await
+
+console.log("one");
+console.log("two");
+
+setTimeout(() => {console.log("hello")}, 1000);  // Execute after 1 seconds
+
+console.log("three");
+console.log("four");
+
+//Callback
+
+function sum2(a,b) {
+    console.log(a+b);
+}
+
+function calculator(a,b,sumCallback) {
+    sumCallback(a,b);
+}
+
+calculator(2,3,sum2);
 
 
+
+// function getData(data,getNextData){
+//
+//     setTimeout(() => {
+//         console.log("Data: ",data)
+//         if(getNextData){
+//             getNextData();
+//         }
+//     },2000);
+//
+// }
+//
+// // callback hell
+//
+// getData(1,
+//     () => {getData(2,
+//         () => {getData(3)})});
+
+
+
+
+
+
+
+// Promises
+// Promise is an object in javascript with three states : pending, resolved (fulfilled) and rejected
+let promise = new Promise((resolve,reject) => {
+    console.log("I am a promise")
+    resolve("success");
+})
+
+promise.then((res) => {console.log("Promise fulfilled",res)});
+
+
+function getData(data){
+
+    return new Promise((resolve,reject) => {
+        setTimeout(() => {
+            console.log("Data:",data)
+            resolve(`${data} successfully fetched`);
+        },3000);
+    });
+}
+
+// // Promise chain
+//
+// getData("one")
+//     .then((res) => {
+//         console.log(res);
+//         return getData("two"); // return the next Promise
+//     })
+//     .then((res2) => {
+//         console.log(res2);
+//         return getData("three"); // return the next Promise
+//     })
+//     .then((res3) => {
+//         console.log(res3);
+//     })
+//     .catch(err => console.error(err)); // handle errors in one place
+
+
+
+
+// Async Await
+
+(async function (){
+    await getData("one");
+    await getData("two");
+    await getData("three");
+})();
+
+
+//Async-Await > Promise Chain > callback hell
