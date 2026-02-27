@@ -431,7 +431,8 @@ function getData(data){
 // Async Await
 
 (async function (){
-    await getData("one");
+    let y = await getData("one");
+    console.log(y);   // will get the resolve value
     await getData("two");
     await getData("three");
 })();
