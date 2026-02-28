@@ -13,10 +13,11 @@ const getCountriesFacts = async () => {
     let data = await response.json();
     console.log(data);
     console.log(data[0].capital);
+    console.log(data[0].name.common);
 
 
-    fact.innerText = data[0].capital;
-    but.addEventListener("click", () => {fact.innerText = fact.innerText + "\n" + data[1].capital})
+    fact.innerText = data[0].name.common;
+    but.addEventListener("click", () => {fact.innerText = fact.innerText + " : " + data[0].capital})
 
 }
 
