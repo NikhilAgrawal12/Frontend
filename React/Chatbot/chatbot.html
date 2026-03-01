@@ -14,18 +14,38 @@
 <script type="text/babel">
 
     function ChatInput() {
+
+        const [inputText, setInputText] = React.useState("");
+
+        function saveInputText(event) {
+            setInputText(event.target.value);
+        }
+
+        function sendMessage() {
+            setChatMessages([
+                ...chatMessages,
+                inputText
+            ]);
+        }
+
         return (
             <>
                 <input type="text"
                        placeholder="Send a message to chatbot"
                        size="30"
+                       onChange={saveInputText}
                 />
-                <button>Send</button>
+                <button
+                onClick={sendMessage}>Send</button>
             </>
         );
     }
 
+
     function ChatMessage({ message, sender }) {
+        // const message = prop.message;
+        // const {message} = prop;
+        // We will get prop objects with message and sender properties
 
         return (
           <div>
@@ -40,26 +60,52 @@
         );
     }
 
+    function ChatMessages() {
+        const [chatMessages,setChatMessages] = React.useState([{
+            message: "hello chatbot",
+            sender: "user",
+            id: "id1"
+        }, {
+            message: "Hello! How can I help you?",
+            sender: "robot",
+            id: "id2"
+        }, {
+            message: "Can you get me today's date?",
+            sender: "user",
+            id: "id3"
+        },{
+            message: "Today is February 28",
+            sender: "robot",
+            id: "id4"
+        }]);
+
+
+        return (
+            <>
+
+                {
+                    chatMessages.map((chatMessage) => {
+                        return (
+                            <ChatMessage
+                                message={chatMessage.message}
+                                sender={chatMessage.sender}
+                                key={chatMessage.id}
+                            />
+                        )
+                    })
+
+                }
+            </>);
+
+
+    }
+
     function App() {
+
         return (
             <>
                 <ChatInput />
-                <ChatMessage
-                    message="hello chatbot"
-                    sender="user"
-                />
-                <ChatMessage
-                    message="Hello! How can I help you?"
-                    sender="robot"
-                />
-                <ChatMessage
-                    message="Can you get me today's date?"
-                    sender="user"
-                />
-                <ChatMessage
-                    message="Today is February 28"
-                    sender="robot"
-                />
+                <ChatMessages />
             </>
 
         );
