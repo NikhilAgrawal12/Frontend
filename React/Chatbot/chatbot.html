@@ -10,10 +10,12 @@
 <script src="https://unpkg.com/supersimpledev/react.js"></script>
 <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
 
+<script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
 <script src="https://unpkg.com/supersimpledev/babel.js"></script>
 <script type="text/babel">
 
-    function ChatInput() {
+    function ChatInput({chatMessages,setChatMessages}) {
 
         const [inputText, setInputText] = React.useState("");
 
@@ -22,22 +24,47 @@
         }
 
         function sendMessage() {
-            setChatMessages([
+            const newChatMessages = [
                 ...chatMessages,
-                inputText
+                {
+                    message: inputText,
+                    sender: "user",
+                    id: crypto.randomUUID()
+                }
+            ];
+
+            setChatMessages(newChatMessages);
+
+            const response = Chatbot.getResponse(inputText);
+
+            setChatMessages([
+                ...newChatMessages,
+                {
+                    message: response,
+                    sender: "robot",
+                    id: crypto.randomUUID()
+                }
             ]);
+
+            setInputText("");
+
+
         }
 
         return (
-            <>
+            <div className="chat-input-container">
                 <input type="text"
                        placeholder="Send a message to chatbot"
                        size="30"
                        onChange={saveInputText}
+                       value={inputText}
+                       className="chat-input"
                 />
                 <button
-                onClick={sendMessage}>Send</button>
-            </>
+                onClick={sendMessage}
+                className="send-button"
+                >Send</button>
+            </div>
         );
     }
 
@@ -48,11 +75,18 @@
         // We will get prop objects with message and sender properties
 
         return (
-          <div>
+          <div className={
+              sender === "user"
+                  ? "chat-message-user"
+                  : "chat-message-robot"
+          }>
               {sender === "robot" && (
                   <img id="chat-image" src="robot.png" alt="robot" />
               )}
-              {message}
+              <div className="chat-message-text">
+                  {message}
+              </div>
+
               {sender === "user" && (
                   <img id="chat-image" src="user.png" alt="user" />
               )}
@@ -60,29 +94,10 @@
         );
     }
 
-    function ChatMessages() {
-        const [chatMessages,setChatMessages] = React.useState([{
-            message: "hello chatbot",
-            sender: "user",
-            id: "id1"
-        }, {
-            message: "Hello! How can I help you?",
-            sender: "robot",
-            id: "id2"
-        }, {
-            message: "Can you get me today's date?",
-            sender: "user",
-            id: "id3"
-        },{
-            message: "Today is February 28",
-            sender: "robot",
-            id: "id4"
-        }]);
-
+    function ChatMessages({chatMessages}) {
 
         return (
             <>
-
                 {
                     chatMessages.map((chatMessage) => {
                         return (
@@ -102,16 +117,40 @@
 
     function App() {
 
+        const [chatMessages,setChatMessages] = React.useState([{
+            message: "hello chatbot",
+            sender: "user",
+            id: "id1"
+        }, {
+            message: "Hello! How can I help you?",
+            sender: "robot",
+            id: "id2"
+        }, {
+            message: "Can you get me today's date?",
+            sender: "user",
+            id: "id3"
+        },{
+            message: "Today is February 28",
+            sender: "robot",
+            id: "id4"
+        }]);
+
+        // whenever there is any change in chatMessages, React re-renders the component that owns the state.
+
         return (
-            <>
-                <ChatInput />
-                <ChatMessages />
-            </>
+            <div className="app-container">
+                <ChatInput
+                    chatMessages={chatMessages}
+                    setChatMessages={setChatMessages}
+                />
+
+                <ChatMessages
+                    chatMessages={chatMessages}
+                />
+            </div>
 
         );
     }
-
-
 
     const container = document.querySelector('.js-container');
     ReactDOM.createRoot(container).render(<App />);
