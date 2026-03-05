@@ -1,5 +1,5 @@
-import './header.css'
 import './TrackingPage.css'
+import { Header } from '../components/Header'
 
 export function TrackingPage() {
     return (
@@ -7,37 +7,7 @@ export function TrackingPage() {
 
             <title>Tracking</title>
 
-            <div className="header">
-                <div className="left-section">
-                    <a href="/" className="header-link">
-                        <img className="logo"
-                             src="../public/images/logo-white.png"/>
-                        <img className="mobile-logo"
-                             src="../public/images/mobile-logo-white.png"/>
-                    </a>
-                </div>
-
-                <div className="middle-section">
-                    <input className="search-bar" type="text" placeholder="Search"/>
-
-                    <button className="search-button">
-                        <img className="search-icon" src="../public/images/icons/search-icon.png"/>
-                    </button>
-                </div>
-
-                <div className="right-section">
-                    <a className="orders-link header-link" href="/orders">
-
-                        <span className="orders-text">Orders</span>
-                    </a>
-
-                    <a className="cart-link header-link" href="/checkout">
-                        <img className="cart-icon" src="../public/images/icons/cart-icon.png"/>
-                        <div className="cart-quantity">3</div>
-                        <div className="cart-text">Cart</div>
-                    </a>
-                </div>
-            </div>
+            <Header />
 
             <div className="tracking-page">
                 <div className="order-tracking">
