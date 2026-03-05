@@ -81,14 +81,14 @@
                   : "chat-message-robot"
           }>
               {sender === "robot" && (
-                  <img id="chat-image" src="robot.png" alt="robot" />
+                  <img src="robot.png" alt="robot" className="chat-message-profile"/>
               )}
               <div className="chat-message-text">
                   {message}
               </div>
 
               {sender === "user" && (
-                  <img id="chat-image" src="user.png" alt="user" />
+                  <img src="user.png" alt="user" className={"chat-message-profile"}/>
               )}
           </div>
         );
@@ -96,8 +96,17 @@
 
     function ChatMessages({chatMessages}) {
 
+        const chatMessagesRef = React.useRef(null);
+        React.useEffect(() => {
+            const containerElem = chatMessagesRef.current;
+            if(containerElem) {
+                containerElem.scrollTop = containerElem.scrollHeight;
+            }
+        }, [chatMessages]);
+
         return (
-            <>
+            <div className="chat-messages-container"
+            ref={chatMessagesRef}>
                 {
                     chatMessages.map((chatMessage) => {
                         return (
@@ -110,7 +119,7 @@
                     })
 
                 }
-            </>);
+            </div>);
 
 
     }
@@ -139,13 +148,14 @@
 
         return (
             <div className="app-container">
-                <ChatInput
-                    chatMessages={chatMessages}
-                    setChatMessages={setChatMessages}
-                />
 
                 <ChatMessages
                     chatMessages={chatMessages}
+                />
+
+                <ChatInput
+                    chatMessages={chatMessages}
+                    setChatMessages={setChatMessages}
                 />
             </div>
 
