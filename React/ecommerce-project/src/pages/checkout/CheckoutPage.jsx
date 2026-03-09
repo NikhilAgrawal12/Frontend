@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Link } from 'react-router';
 import { useState, useEffect } from 'react';
 import './checkout-header.css'
 import './CheckoutPage.css'
@@ -34,10 +35,10 @@ export function CheckoutPage({cart,loadCart}) {
             <div className="checkout-header">
                 <div className="header-content">
                     <div className="checkout-header-left-section">
-                        <a href="/React/ecommerce-project/public">
+                        <Link to="/" className="header-link">
                             <img className="logo" src="../public/images/logo.png"/>
                             <img className="mobile-logo" src="../public/images/mobile-logo.png"/>
-                        </a>
+                        </Link>
                     </div>
 
                     <div className="checkout-header-middle-section">
@@ -57,7 +58,7 @@ export function CheckoutPage({cart,loadCart}) {
                 <div className="checkout-grid">
                     <OrderSummary cart={cart} deliveryOptions={deliveryOptions} loadCart={loadCart}/>
 
-                    <PaymentSummary paymentSummary={paymentSummary}/>
+                    <PaymentSummary paymentSummary={paymentSummary} loadCart={loadCart}/>
                 </div>
             </div>
         </>
