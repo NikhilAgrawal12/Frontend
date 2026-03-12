@@ -20,6 +20,7 @@ export function HomePage({cart, loadCart}) {
     return (
         <>
 
+
             <title>Ecommerce Project</title>
 
             <Header cart={cart}/>
