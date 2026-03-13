@@ -1,4 +1,4 @@
-import {formatMoney} from "../../utils/money.js";
+import {formatMoney} from "../../utils/money.ts";
 import axios from "axios";
 import {useState} from "react";
 

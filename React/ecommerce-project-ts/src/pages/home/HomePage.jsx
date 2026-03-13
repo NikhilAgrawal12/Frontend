@@ -1,4 +1,4 @@
-import { Header } from '../../components/Header.jsx'
+import { Header } from '../../components/Header.tsx'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { ProductGrid } from './ProductGrid.jsx'

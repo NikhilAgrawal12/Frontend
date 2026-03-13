@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import {formatMoney} from "../../utils/money.js";
+import {formatMoney} from "../../utils/money.ts";
 import {OrderDetailsGrid} from './OrderDetailsGrid.jsx';
 
 export function OrdersGrid({orders}) {
